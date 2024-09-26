@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to generate a shareable link based on username
   function generateShareableLink(username: string): string {
       const formattedUsername = username.toLowerCase().replace(/\s+/g, '-');
-      const baseUrl = `resume-viewer.html?username=${username}`;
+      const baseUrl = `https://hachathon-milestone-05.vercel.app/${username}`;
       return `${baseUrl}/${formattedUsername}`;
   }
 
