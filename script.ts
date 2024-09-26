@@ -114,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const resumeLink = generateShareableLink(data.name);
       shareableLinkDiv.innerHTML = `Shareable Link: <a href="${resumeLink}" target="_blank">${resumeLink}</a>`;
       copyLinkBtn.style.display = "block";
-
       // Setup Copy Link functionality
       copyLinkBtn.addEventListener('click', () => {
           copyToClipboard(resumeLink);
@@ -129,10 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to generate a shareable link based on username
   function generateShareableLink(username: string): string {
-      const formattedUsername = username.toLowerCase().replace(/\s+/g, '-');
-      const baseUrl = `https://hachathon-milestone-05.vercel.app/`;
-      return `${baseUrl}/${formattedUsername}`;
-  }
+    const formattedUsername = username.toLowerCase().replace(/\s+/g, '-');
+    const baseUrl = "https://hachathon-milestone-05.vercel.app";
+    return `${baseUrl}?username=${formattedUsername}`;
+}
+
 
   // Function to copy link to clipboard
   function copyToClipboard(text: string) {
