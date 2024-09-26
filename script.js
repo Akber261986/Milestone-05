@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to generate a shareable link based on username
     function generateShareableLink(username) {
         var formattedUsername = username.toLowerCase().replace(/\s+/g, '-');
-        var baseUrl = "https://hachathon-milestone-05.vercel.app/";
-        return "".concat(baseUrl, "/").concat(formattedUsername);
+        var baseUrl = "https://hachathon-milestone-05.vercel.app";
+        return "".concat(baseUrl, "?username=").concat(formattedUsername);
     }
     // Function to copy link to clipboard
     function copyToClipboard(text) {
