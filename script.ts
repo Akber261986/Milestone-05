@@ -22,11 +22,17 @@ const downloadBtn = document.getElementById('download-btn') as HTMLButtonElement
 document.addEventListener("DOMContentLoaded", () => {
   
     const profilepic = document.getElementById('pic') as HTMLImageElement;
+
     const inputFile = document.getElementById('profilePicture') as HTMLInputElement;
 
-        inputFile.onchange = ()=>{
-        profilepic.src = URL.createObjectURL(inputFile.files[0])
-        }
+    inputFile.onchange = () => {
+      if (inputFile.files && inputFile.files[0]) {
+        profilepic.src = URL.createObjectURL(inputFile.files[0]);
+      } else {
+        console.log("No file selected.");
+      }
+    };
+    
 
   form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -126,12 +132,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Function to generate a shareable link based on username
-  function generateShareableLink(username: string): string {
+// Function to generate a shareable link based on username
+function generateShareableLink(username: string): string {
     const formattedUsername = username.toLowerCase().replace(/\s+/g, '-');
-    const baseUrl = "https://hachathon-milestone-05.vercel.app";
+    
+    // Detect if the code is running locally or on the deployed server
+    const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+    // If running locally, use a local preview link
+    const baseUrl = isLocal ? window.location.href : "https://hachathon-milestone-05.vercel.app";
+    
     return `${baseUrl}?username=${formattedUsername}`;
 }
+
 
 
   // Function to copy link to clipboard

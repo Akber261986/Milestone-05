@@ -1,98 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    
-    <title>Resume Builder</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
-</head>
-<body>
+  <head>
+    <title>Resume Builder with shareableLink and download</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
     <div class="formContainer">
-        <div class="innerContainer" id="innerContainer">
-            <form id="resumeForm">
-                <fieldset>
-                    <legend> Personal Information </legend>
-                    <div class="informationForm">
-                        <div class="informationFormBox1">
-                            <div class="profilePicForm"> <img src="/demo-profile-pic.png" id="pic"></div>
-                            <div class="btn-neon-10" id="pp" style=" height: 80px;">
-                                <a>
-                                    <span>
-                                        <label for="profilePicture" class="labelButton">Profile Picture</label>
-                                  </span>
-                                </a>
-                            </div>
-                            
-                            <input type="file" id="profilePicture" accept="image/*" style="display: none;">
-                        </div>
-                        <div class="informationFormBox2">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" required>
-                            <br>
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" required>
-                            <br>
-                            <label for="phone">Mobile Number:</label>
-                            <input type="number" id="phone"> <br>
-                        </div>
-                    </div>
-                </fieldset> <br>
-                <fieldset>
-                    <legend>Eduction</legend>
-                    <label for="degree">Certificate / Degree:</label>
-                    <input type="text" id="degree">
-                    <br>
-                    <label for="school">School / University:</label>
-                    <input type="text" id="school">
-                </fieldset><br>
-                <fieldset>
-                    <legend>Work Experience</legend>
-                    <label for="jobTitle">Job Title:</label>
-                    <input type="text" id="jobTitle">
-                    <br>
-                    <label for="company">Company:</label>
-                    <input type="text" id="company">    
-                </fieldset><br>
-                <fieldset>
-                    <legend>Skills</legend>
-                    <label for="skills">Skills</label>
-                    <input type="text" id="skills" placeholder="Separate skills with commas">
-                </fieldset>
-                <div class="btn-neon-10">
-                    <a>
-                      <span>
-                        <button type="submit">Generate Resume</button>
-                      </span>
-                    </a>
+      <div class="innerContainer" id="innerContainer">
+        <form id="resumeForm">
+          <fieldset>
+            <legend>Personal Information</legend>
+            <div class="informationForm">
+              <div class="informationFormBox1">
+                <div class="profilePicForm">
+                  <img src="/demo-profile-pic.png" id="pic" />
                 </div>
-            </form>
-        </div>
-        <div>
-            <div id="resume"></div>
-
-            <div class ="downloadAndShareable">
-                <div id="shareable-link"></div>
-                <div class="btn-neon-10" id="copy-link-btn" style="display:none;">
-                    <a>
-                      <span>
-                        <button>Copy Link</button>
-                      </span>
-                    </a>
-                </div>
-                <div class="btn-neon-10" id="download-btn" style="display: none;">
-                    <a>
-                      <span>
-                        <button>Download as PDF</button> 
+                <div class="btn-neon-10" id="pp" style="height: 80px">
+                  <a>
+                    <span>
+                      <label for="profilePicture" class="labelButton"
+                        >Profile Picture</label
+                      >
                     </span>
-                    </a>
-                </div>                
+                  </a>
+                </div>
+
+                <input
+                  type="file"
+                  id="profilePicture"
+                  accept="image/*"
+                  style="display: none"
+                />
+              </div>
+              <div class="informationFormBox2">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required />
+                <br />
+                <label for="email">Email:</label>
+                <input type="email" id="email" required />
+                <br />
+                <label for="phone">Mobile Number:</label>
+                <input type="number" id="phone" /> <br />
+              </div>
             </div>
+          </fieldset>
+          <br />
+          <fieldset>
+            <legend>Eduction</legend>
+            <label for="degree">Certificate / Degree:</label>
+            <input type="text" id="degree" />
+            <br />
+            <label for="school">School / University:</label>
+            <input type="text" id="school" />
+          </fieldset>
+          <br />
+          <fieldset>
+            <legend>Work Experience</legend>
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" />
+            <br />
+            <label for="company">Company:</label>
+            <input type="text" id="company" />
+          </fieldset>
+          <br />
+          <fieldset>
+            <legend>Skills</legend>
+            <label for="skills">Skills</label>
+            <input
+              type="text"
+              id="skills"
+              placeholder="Separate skills with commas"
+            />
+          </fieldset>
+          <div class="btn-neon-10">
+            <a>
+              <span>
+                <button type="submit">Generate Resume</button>
+              </span>
+            </a>
+          </div>
+        </form>
+      </div>
+      <div>
+        <div id="resume"></div>
+
+        <div class="downloadAndShareable">
+          <div id="shareable-link"></div>
+          <div class="btn-neon-10" id="copy-link-btn" style="display: none">
+            <a>
+              <span>
+                <button>Copy Link</button>
+              </span>
+            </a>
+          </div>
+          <div class="btn-neon-10" id="download-btn" style="display: none">
+            <a>
+              <span>
+                <button>Download as PDF</button>
+              </span>
+            </a>
+          </div>
         </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/d31c2254b0.js" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://kit.fontawesome.com/d31c2254b0.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

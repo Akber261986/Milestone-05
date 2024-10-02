@@ -8,7 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var profilepic = document.getElementById('pic');
     var inputFile = document.getElementById('profilePicture');
     inputFile.onchange = function () {
-        profilepic.src = URL.createObjectURL(inputFile.files[0]);
+        if (inputFile.files && inputFile.files[0]) {
+            profilepic.src = URL.createObjectURL(inputFile.files[0]);
+        }
+        else {
+            console.log("No file selected.");
+        }
     };
     form.addEventListener('submit', function (e) {
         var _a;
@@ -70,7 +75,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to generate a shareable link based on username
     function generateShareableLink(username) {
         var formattedUsername = username.toLowerCase().replace(/\s+/g, '-');
-        var baseUrl = "https://hachathon-milestone-05.vercel.app";
+        // Detect if the code is running locally or on the deployed server
+        var isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+        // If running locally, use a local preview link
+        var baseUrl = isLocal ? window.location.href : "https://hachathon-milestone-05.vercel.app";
         return "".concat(baseUrl, "?username=").concat(formattedUsername);
     }
     // Function to copy link to clipboard
