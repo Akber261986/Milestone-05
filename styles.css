@@ -10,10 +10,21 @@
     color: white;
   } 
   .innerContainer {
+    position:relative;
+    z-index: 1;
     width: 800px;
     padding: 20px 50px;
+  }
+  .innerContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background:url(/abstract-uv-ultraviolet-light-composition_23-2149243965.avif) no-repeat center center/cover;
-
+    opacity: 0.7;
+    z-index: -1;
   }
   form {
     width: 700px;
@@ -78,6 +89,7 @@ legend {
     text-align: center;
     font-size: 16px;
     font-weight: 700;
+    margin-top: 12px;
     padding: 10px 25px;
     border: none;
     border-radius: 25px;
@@ -95,6 +107,7 @@ legend {
 /* <========================Resume CSS==========================> */
 
 #resume {
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -157,9 +170,9 @@ legend {
     border-bottom-right-radius: 10px;
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 60%;
     padding: 5px 50px;
-    background: rgba(3, 120, 253, 0.6);
+    background: rgba(3, 120, 253, 0.4);
 }
 .data h2 {
     font-size: 25px;
@@ -203,50 +216,63 @@ legend {
   }
 
   .downloadAndShareable {
+    width: 600px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 20px;
   }
-
-  @media (max-width:760Px){
-   .resumeContainer {
+  .frd {
+    width: 65%;
+    display: flex;
     flex-direction: column;
     align-items: center;
-   } 
-   .data {
-    width: 400px;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 10px;
-   }
-   .information {
-    width: 400px;
-    flex-direction: row;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 0;
-   }
-   .information h2 {
-    font-size: 20px;
-   }
-   .nameAndImage {
-    justify-content: center;
-    width: 200px;
-   }
-   .Contact {
-   width: 55%;
-   height: 100%; 
-   border-bottom-left-radius: 0;
-   }
-   .downloadAndShareable {
-    display: grid;
-    grid-template-columns: (1fr 1fr);
-    grid-template-rows: 50px 50px;
-    width: 400px;
-    color: black;
-    align-items: center;
-    justify-content: center;
-   }
-   .link {
-    grid-column-start: 1;
-    grid-column-end: 3;
-   }
   }
+  .link {
+    color: black;
+    font-weight: 700;
+    align-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .resumeContainer {
+      flex-direction: column;
+      width: 90vw; /* Set width to viewport width for responsiveness */
+      align-items: center;
+    }
+  
+    .data, .information {
+      width: 100%; /* Full width in smaller screens */
+      border-radius: 0; /* Adjusted for mobile */
+    }
+  
+    .information {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+    }
+  
+    .downloadAndShareable {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 50px 50px;
+      width: 100%; /* Responsive width */
+      gap: 10px;
+    }
+  
+    /* Adjust input fields and labels to stack */
+    .informationForm, .informationFormBox2 {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .informationFormBox2 input {
+      width: 100%; /* Full width on smaller screens */
+      font-size: 14px; /* Adjusted for readability */
+    }
+  
+    .subButton button, .btn {
+      width: 100%;
+      padding: 12px; /* Full-width buttons on smaller screens */
+    }
+  }
+  

@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Create shareable link
       const resumeLink = generateShareableLink(data.name);
-      shareableLinkDiv.innerHTML = `Shareable Link: <a href="${resumeLink}" target="_blank">${resumeLink}</a>`;
+      shareableLinkDiv.innerHTML = `Shareable Link: <a href="${resumeLink}" target="_blank">Click here</a>`;
       copyLinkBtn.style.display = "block";
       // Setup Copy Link functionality
       copyLinkBtn.addEventListener('click', () => {

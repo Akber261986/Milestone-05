@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
-                profilePicture: reader.result,
+                profilePicture: reader.result, // Image data URL
                 school: document.getElementById('school').value,
                 degree: document.getElementById('degree').value,
                 jobTitle: document.getElementById('jobTitle').value,
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         innerContainer.style.display = "none";
         // Create shareable link
         var resumeLink = generateShareableLink(data.name);
-        shareableLinkDiv.innerHTML = "Shareable Link: <a href=\"".concat(resumeLink, "\" target=\"_blank\">").concat(resumeLink, "</a>");
+        shareableLinkDiv.innerHTML = "Shareable Link: <a href=\"".concat(resumeLink, "\" target=\"_blank\">Click here</a>");
         copyLinkBtn.style.display = "block";
         // Setup Copy Link functionality
         copyLinkBtn.addEventListener('click', function () {
